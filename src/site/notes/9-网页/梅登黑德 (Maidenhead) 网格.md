@@ -20,19 +20,22 @@
 
 第一个字段，即前 2 位字母将地球表面按照经纬度划分为 18x18 个网格，每个网格的大小是经度 20 度，纬度 10 度。把西南角（左下角）位于东经西经 180 度，南纬 90 度的网格定义为 AA，向东向北编码到 RR。
 
-![](https://pic2.zhimg.com/v2-24b41ee2a2e8d25da80c55517b5ee7cd_b.gif)
+![](https://img.mozixun.com/images/2024/01/15/01759f3eda67.png)
+
 
 第二个字段，进一步将网格细分为 10x10 个二级网格，每个网格经度 2 度，纬度 1 度。一级网格中西南角的二级网格编码为 00，向东向北编码到 99。
 
-![](https://pic4.zhimg.com/v2-2afb758d773d4bf4c522b5fc8f1ba63b_b.gif)
+![](https://img.mozixun.com/images/2024/01/15/0ce421d15d3d.png)
+
 
 第三个字段，再将二级网格细分为 24x24 个三级网格，每个网格经度 5 分，纬度 2 分 30 秒。二级网格中西南角的三级网格编码为 aa，向东向北编码到 xx。
 
-![](https://pic3.zhimg.com/v2-750b8d9e5c4a16cc57d0dd201d9fdd6a_b.gif)
+![](https://img.mozixun.com/images/2024/01/15/990d97740c75.png)
+
 
 扩展的梅登黑德网格编码重复上述第二、第三字段的编码方式不断提高精度，扩展到 10 个字段时，坐标描述精度达到厘米级。考虑到经纬度在地球上的分布不是均匀等间隔的，所以从经纬度网格衍生得到的梅登黑德网格，在不同地理位置具有不同的精度。每个网格覆盖的面积，在赤道地区更大一些，而在极地会很快减小。
 
-![](https://pic1.zhimg.com/v2-64991a0e9a770d7bba376313e17a6988_r.jpg)
+![](https://img.mozixun.com/images/2024/01/15/848a58e924ce.png)
 
 ## 网格边界的处理
 
@@ -48,7 +51,7 @@
 
 作为中国业余无线电爱好者的入门必读教材，被称为 “绿宝书” 的《业余无线电通信》一书上刊载了一段将经纬度坐标转换为梅登黑德网格的 BASIC 代码。
 
-![](https://pic3.zhimg.com/v2-73621bc1113a9ade788886a45021ea9e_r.jpg)
+![](https://img.mozixun.com/images/2024/01/15/e2f64d868ab9.png)
 
 我见过不止一位同学试图将这段代码敲进 BASIC 解释器中运行，但不幸的是，这段代码中存在一些错误，无法在 BASIC 解释器上运行。我们订正了这段程序中的错误，并改用大写字母让它更具有 BASIC 风范。但是由于找不到靠谱的解释器，这段修改后的代码并没有经过测试，不保证在某个 BASIC 解释器上能不经移植地运行。
 
@@ -102,7 +105,8 @@ char* lbh2mdg(double lon, double lat, int stage);
 
 运行结果是
 
-![](https://pic4.zhimg.com/v2-c72af6c0d5260bb923589e69ba825327_r.jpg)
+![](https://img.mozixun.com/images/2024/01/15/90335711af91.png)
+
 
 C 语言的版本大概会在我学会 Git/GitHub 之类工具用法后传到网上，有需要的话现在可以发邮件给我 mioyuki@foxmail.com 索取源代码和 CodeBlocks 的工程，此工程在 Ubuntu Linux 下用 GCC 编译可以运行。
 
